@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def multiple_returns(sentence):
-    leter = None
+    letter = None
     if sentence:
         letter = sentence[0]
     num = len(sentence)
