@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python3 #squaring a matrix
 def square_matrix_simple(matrix=[]):
     l = [ele[:] for ele in matrix]
     for i in range(len(l)):
