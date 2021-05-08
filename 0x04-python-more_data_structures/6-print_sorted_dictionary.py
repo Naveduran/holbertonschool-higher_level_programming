@@ -2,6 +2,6 @@
 def print_sorted_dictionary(a_dictionary):
     listt = list(a_dictionary.keys())
     listt.sort()
-    for val in listt:
-        print(val, end='')
-        print(":", a_dictionary.get(val))
+    dic = {}
+    for key in sorted(a_dictionary):
+        print(key + ": " + str(a_dictionary.get(key)))
