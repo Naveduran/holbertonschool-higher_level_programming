@@ -12,7 +12,7 @@ class Rectangle:
         self.__height = height
         self.__width = width
         Rectangle.number_of_instances += 1
-        self.print_symbol = Rectangle.print_symbol
+        self.print_symboL = '#'
 
     @property
     def width(self):
