@@ -12,7 +12,6 @@ class Rectangle:
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
-        self.print_symboL = '#'
 
     @property
     def width(self):
@@ -24,7 +23,6 @@ class Rectangle:
             raise TypeError('width must be an integer')
         if value < 0:
             raise ValueError('width must be >= 0')
-        print("value = {}".format(type(value)))
         self.__width = value
 
     @property
