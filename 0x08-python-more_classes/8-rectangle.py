@@ -3,10 +3,16 @@
 
 
 class Rectangle:
+
+    number_of_instances = 0
+    print_symbol = '#'
+
     '''defines a rectangle'''
     def __init__(self, width=0, height=0):
         self.__height = height
         self.__width = width
+        Rectangle.number_of_instances += 1
+        self.print_symboL = '#'
 
     @property
     def width(self):
@@ -46,7 +52,25 @@ class Rectangle:
         string = ''
         for i in range(self.__height):
             for j in range(self.__width):
-                string = string + '#'
+                string = string + str(self.print_symbol)
             if i != self.__height - 1:
                 string = string + '\n'
         return string
+
+    def __repr__(self):
+        s = "Rectangle(" + str(self.__width) + ", " + str(self.__height) + ")"
+        return s
+
+    def __del__(self):
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
+
+    def bigger_or_equal(rect_1, rect_2):
+        if type(rect_1) != Rectangle:
+            raise TypeError('rect_1 must be an instance of Rectangle')
+        if type(rect_2) != Rectangle:
+            raise TypeError('rect_2 must be an instance of Rectangle')
+        if rect_1.area == rect_2.area or rect_1.area > rect_2.area:
+            return rect_1
+        else:
+            return rect_2
