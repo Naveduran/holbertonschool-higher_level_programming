@@ -1,0 +1,132 @@
+
+# Import the function
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+
+
+# Import module to run bash scripts
+
+>>> import os
+
+
+
+# Proving output content and format when sending integers
+
+>>> matrix_divided([[2, 4, 6],[8, 10, 12]], 1)
+[[2.0, 4.0, 6.0], [8.0, 10.0, 12.0]]
+
+>>> matrix_divided([[2, 4, 6],[8, 10, 12]], 2)
+[[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+
+>>> matrix_divided([[1, 2, 3],[4, 5, 6]], 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+
+
+# Raise error if trying to divide by zero
+
+>>> matrix_divided([[2, 4, 6],[8, 10, 12]], 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+
+
+# Raise error if list don't contain floats or integers
+
+>>> matrix_divided([['h', 4, 6],[8, 'k', 12]], 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided([[2, 4, 6],[8, None, 12]], 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided([[2, 4, 6],[8, [1, 2, 3], 12]], 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+
+# Raise an error if the matrix is full of empty lists
+
+>>> matrix_divided([[],[]], 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided([], 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+
+# Raise error when the lists don't have the same lenght
+
+>>> matrix_divided([[2, 4, 6],[8, 10, 12, 16]], 2)
+Traceback (most recent call last):
+...
+TypeError: Each row of the matrix must have the same size
+
+
+
+# Raise error when trying to divide for something that is not a number
+
+>>> matrix_divided([[2, 4, 6],[8, 10, 12, 16]], 'Hola')
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+
+
+# Check documentation of module and function
+
+>>> len('2-matrix_divided'.__doc__) > 10
+True
+
+>>> len(matrix_divided.__doc__) > 10
+True
+
+
+
+# Check existence of a readme
+
+>>> with open('README.md') as f:
+...     len(f.read()) > 1
+True
+
+
+
+# Check firstline
+
+>>> with open('2-matrix_divided.py') as f:
+...     f.readline()
+'#!/usr/bin/python3\n'
+
+
+
+# Check lastline
+
+>>> with open('2-matrix_divided.py') as f:
+...     print(f.read()[-1])
+<BLANKLINE>
+<BLANKLINE>
+
+
+
+# Check style
+
+>>> os.system('pep8 --count 2-matrix_divided.py')
+0
+
+
+
+# Check if file is executable
+
+>>> os.access("2-matrix_divided.py", os.X_OK)
+True
