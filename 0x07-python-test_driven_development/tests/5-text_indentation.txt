@@ -1,0 +1,91 @@
+# Import the function
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+
+# Import module to run bash scripts
+
+>>> import os
+
+
+
+# Testing normal output
+
+>>> text_indentation("The core. The core.")
+The core.
+<BLANKLINE>
+The core.
+<BLANKLINE>
+
+>>> text_indentation("The core: The core:")
+The core:
+<BLANKLINE>
+The core:
+<BLANKLINE>
+
+>>> text_indentation("The core? The core?")
+The core?
+<BLANKLINE>
+The core?
+<BLANKLINE>
+
+>>> text_indentation("   The core. The core.   ")
+The core.
+<BLANKLINE>
+The core.
+<BLANKLINE>
+
+
+
+# Raise error if parameter have a different type
+
+>>> text_indentation(51)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+
+
+# Check existence of a readme
+
+>>> with open('README.md') as f:
+...     len(f.read()) > 1
+True
+
+
+
+# Check documentation of module and function
+
+>>> len('5-text_indentation'.__doc__) > 10
+True
+
+>>> len(text_indentation.__doc__) > 10
+True
+
+
+
+# Check first and last line
+
+>>> with open('5-text_indentation.py') as f:
+...     f.readline()
+'#!/usr/bin/python3\n'
+
+>>> with open('5-text_indentation.py') as f:
+...     print(f.read()[-1])
+<BLANKLINE>
+<BLANKLINE>
+
+
+
+# Check style
+
+>>> os.system('pep8 --count 5-text_indentation.py')
+0
+
+
+
+# Check if file is executable
+
+>>> os.access('5-text_indentation.py', os.X_OK)
+True
