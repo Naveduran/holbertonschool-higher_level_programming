@@ -1,6 +1,6 @@
 # Import the function
 
->>> text_indentation = __import__('5-text_indentation').indentation_indentation
+>>> text_indentation = __import__('5-text_indentation').text_indentation
 
 
 
