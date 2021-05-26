@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 '''
-contains a function that prints a indentation with 2 new lines
+contains a function that prints a text with 2 new lines
 after each of these characters: ., ? and :
 '''
 
 
-def indentation_indentation(text):
+def text_indentation(text):
     '''
-    function that prints a indentation with 2 new lines
+    function that prints a text with 2 new lines
     after each of these characters: ., ? and :
     '''
 
