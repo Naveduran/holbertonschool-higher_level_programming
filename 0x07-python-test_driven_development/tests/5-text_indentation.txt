@@ -38,13 +38,11 @@ The core.
 
 >>> text_indentation("Holberton School")
 Holberton School
-
 >>> text_indentation("Holberton.School")
 Holberton.
 <BLANKLINE>
 School
-
->>> text_indentation("Holberton. School? How are you: John")
+>>> text_indentation("Holberton.School?How are you:John")
 Holberton.
 <BLANKLINE>
 School?
