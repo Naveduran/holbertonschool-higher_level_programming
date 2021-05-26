@@ -30,7 +30,7 @@ def text_indentation(text):
     for line in list_of_lines:
         if line != '':
             item = line.strip(' ')
-            print(item)
+            print(item, end='')
             last_c = item[-1]
             if last_c == '?' or last_c == ':' or last_c == '.':
-                print()
+                print('\n')
