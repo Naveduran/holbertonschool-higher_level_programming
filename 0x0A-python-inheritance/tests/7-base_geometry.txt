@@ -1,0 +1,103 @@
+# Import the function
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+
+# Import module to run bash scripts
+>>> import os
+
+
+# Methods exist and are documented
+
+>>> bg = BaseGeometry()
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator('sand', 5)
+
+# Name string is empty
+>>> bg = BaseGeometry()
+>>> bg.integer_validator('', 5)
+
+# Raise error if value is not an integer
+>>> bg = BaseGeometry()
+>>> bg.integer_validator('sand', {})
+Traceback (most recent call last):
+...
+TypeError: sand must be an integer
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator('sand', [])
+Traceback (most recent call last):
+...
+TypeError: sand must be an integer
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator('sand', None)
+Traceback (most recent call last):
+...
+TypeError: sand must be an integer
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator('sand', '')
+Traceback (most recent call last):
+...
+TypeError: sand must be an integer
+
+
+# Raise error if value is minor to zero
+>>>
+Traceback (most recent call last):
+...
+ValueError: <name> must be greater than 0
+
+# Error if there aren't given values
+>>>
+Traceback (most recent call last):
+...
+
+
+
+# Error if no parameters are given
+>>>
+Traceback (most recent call last):
+...
+
+
+
+# Check documentation of module, and class
+>>> len('7-base_geometry'.__doc__) > 10
+True
+>>> len('base_geometry'.__doc__) > 10
+True
+
+
+# Check existence of a readme
+>>> with open('README.md') as f:
+...     len(f.read()) > 1
+True
+
+
+# Check firstline
+>>> with open('7-base_geometry.py') as f:
+...     f.readline()
+'#!/usr/bin/python3\n'
+
+
+# Check lastline
+>>> with open('7-base_geometry.py') as f:
+...     print(f.read()[-1])
+<BLANKLINE>
+<BLANKLINE>
+
+
+# Check style
+>>> os.system('pep8 --count 7-base_geometry.py')
+0
+
+
+# Check if file is executable
+>>> os.access("7-base_geometry.py", os.X_OK)
+True
