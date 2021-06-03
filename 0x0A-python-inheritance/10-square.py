@@ -7,5 +7,6 @@ class Square(Rectangle):
     ''' inherits from Rectangle'''
     def __init__(self, size):
         '''inicialization of values'''
-        Rectangle.__init__(self, size, size)
         self.__size = size
+        self.integer_validator('size', size)
+        super().__init__(size, size)
