@@ -10,3 +10,6 @@ class Square(Rectangle):
         '''inicialization of values'''
         self.__size = size
         Rectangle.__init__(self, self.__size, self.__size)
+
+    def __str__(self):
+        return('[Square] {}/{}'.format(self.__width, self.__height))
