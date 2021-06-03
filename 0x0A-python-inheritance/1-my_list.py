@@ -3,9 +3,10 @@
 
 
 class MyList(list):
+    '''A class that inherits from list type'''
 
     def print_sorted(self):
-        '''a class MyList that inherits from list'''
+        '''a method that prints the sorted list'''
         sorted = self.copy()
         sorted.sort()
         print(sorted)
