@@ -1,0 +1,86 @@
+# Import the function
+
+>>> MyList = __import__('1-my_list').MyList
+
+
+
+# Import module to run bash scripts
+
+>>> import os
+
+
+
+# Proving output content and format when sending integers
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+
+# Check inheritance of list attributes to the object and class
+
+>>> dir(my_list)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'print_sorted', 'remove', 'reverse', 'sort']
+
+# Raise error if try non int elements are sended?
+
+#>>> my_list.append()
+#Traceback (most recent call last):
+#...
+#ZeroDivisionError: division by zero
+
+
+
+# Check documentation of module, and class
+
+>>> len('1-my_list'.__doc__) > 10
+True
+
+>>> len('my_list'.__doc__) > 10
+True
+
+
+
+# Check existence of a readme
+
+>>> with open('README.md') as f:
+...     len(f.read()) > 1
+True
+
+
+
+# Check firstline
+
+>>> with open('1-my_list.py') as f:
+...     f.readline()
+'#!/usr/bin/python3\n'
+
+
+
+# Check lastline
+
+>>> with open('1-my_list.py') as f:
+...     print(f.read()[-1])
+<BLANKLINE>
+<BLANKLINE>
+
+
+
+# Check style
+
+>>> os.system('pep8 --count 1-my_list.py')
+0
+
+
+
+# Check if file is executable
+
+>>> os.access("1-my_list.py", os.X_OK)
+True
