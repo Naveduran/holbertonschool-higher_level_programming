@@ -11,5 +11,3 @@ def inherits_from(obj, a_class):
         return True
     else:
         return False
-#    print(isinstance(type(obj), a_class))
-#    print(isinstance(obj.__class__, a_class))
