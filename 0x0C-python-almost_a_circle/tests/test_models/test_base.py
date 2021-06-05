@@ -97,7 +97,6 @@ class Test_Base(unittest.TestCase):
         with open('./models/base.py') as f:
             first = f.readline()
             last = f.read()[-1]
-            print("Last :" + last, end='')
 
         self.assertTrue(first == '#!/usr/bin/python3\n')
         self.assertTrue(last == '\n')
