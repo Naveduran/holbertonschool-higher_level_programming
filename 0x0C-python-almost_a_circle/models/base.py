@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-'''module base'''
+'''module base '''
 
 
 class Base():
-    '''class base'''
+    '''class Base '''
 
     __nb_objects = 0
 
