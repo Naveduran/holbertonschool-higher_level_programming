@@ -35,7 +35,7 @@ class Square(Rectangle):
     # FALTA EL PUNTO 12 ARGS Y KWARGS
 
     def to_dictionary(self):
-        ''' returns the dictionary representation of a Rectangle '''
+        ''' returns the dictionary representation of a Square '''
         vars = ['id', 'x', 'size', 'y']
         dictionary = {}
         for i in range(len(vars)):

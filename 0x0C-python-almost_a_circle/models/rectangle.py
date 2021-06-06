@@ -6,6 +6,8 @@ from models.base import Base
 class Rectangle(Base):
     ''' class Rectangle '''
 
+    vars = ['id', 'width', 'height', 'x', 'y']
+
     def __init__(self, width, height, x=0, y=0, id=None):
         ''' class constructor of rectangle '''
         self.width = width
@@ -94,11 +96,21 @@ class Rectangle(Base):
         s2 = ' {}/{}'.format(self.__width, self.__height)
         return s1 + s2
 
-    # FALTAN LOS PUNTOS 8 Y 9 ARGS Y KWARGS
+    def update(self, *args, **kwargs):
+        ''' update the private attributes'''
+        vars = ['id', 'width', 'height', 'x', 'y']
+        if args and args[0]:
+            for i in range(len(args)):
+                setattr(self, vars[i], args[i])
+        else:
+            for i in kwargs.keys():
+                if i in dir(self):
+                    setattr(self, i, kwargs.get(i))
 
-    # def update(self, *args): faltan puntos 8 y 9
-    #     ''' update the private attributes'''
-    #     var = ['__id', '__wi', '__he', '__x', '__y']
-    #     for i in range(len(args)):
-    #         print('variable={}; new={}'.format(var[i], args[i])
-    #         setattr(self, var[i], args[i])
+    def to_dictionary(self):
+        ''' returns the dictionary representation of a Rectangle '''
+        vars = ['x','y','id', 'height', 'width']
+        dictionary = {}
+        for i in range(len(vars)):
+            dictionary.update({vars[i]: (getattr(self, vars[i]))})
+        return dictionary
