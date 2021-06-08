@@ -32,7 +32,16 @@ class Square(Rectangle):
         s2 = ' {}'.format(self.width)
         return s1 + s2
 
-    # FALTA EL PUNTO 12 ARGS Y KWARGS
+    def update(self, *args, **kwargs):
+        ''' update the private attributes'''
+        vars = ['id', 'size', 'x', 'y']
+        if args:
+            for i in range(len(args)):
+                setattr(self, vars[i], args[i])
+        else:
+            for i in kwargs.keys():
+                if i in dir(self):
+                    setattr(self, i, kwargs.get(i))
 
     def to_dictionary(self):
         ''' returns the dictionary representation of a Square '''
