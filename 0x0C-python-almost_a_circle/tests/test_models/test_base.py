@@ -27,7 +27,6 @@ class Test_Base(unittest.TestCase):
         # test for class Base, task 0
 
         a = Base()
-# ?        self.assertEqual(a.__nb_objects, 1)
         b = Base()
         c = Base()
         d = Base(12)
@@ -38,7 +37,6 @@ class Test_Base(unittest.TestCase):
         self.assertEqual(c.id, 3)
         self.assertEqual(d.id, 12)
         self.assertEqual(e.id, 4)
-# ?        self.assertEqual(__nb_objects, 4)
 
         self.assertTrue(type(a), Base)
         self.assertIsInstance(a, Base)
@@ -85,8 +83,9 @@ class Test_Base(unittest.TestCase):
 
         self.assertTrue(os.path.isfile('./tests/test_models/__init__.py'))
         self.assertTrue(os.path.isfile('./tests/test_models/test_base.py'))
-        # self.assertTrue(os.path.isfile('./tests/test_models/test_rectangle.py'))
-        # self.assertTrue(os.path.isfile('./tests/test_models/test_square.py'))
+        self.assertTrue(os.path.isfile(
+            './tests/test_models/test_rectangle.py'))
+        self.assertTrue(os.path.isfile('./tests/test_models/test_square.py'))
 
         # files are executable
         self.assertTrue(os.access('./models/base.py', os.X_OK))
@@ -113,8 +112,8 @@ class Test_Base(unittest.TestCase):
         self.assertTrue(len('rectangle'.__doc__) > 8)
         self.assertTrue(len(Rectangle.__doc__) > 8)
 
-        # self.assertTrue(len('square'.__doc__) > 8)
-        # self.assertTrue(len(Square.__doc__) > 8)
+        self.assertTrue(len('square'.__doc__) > 8)
+        self.assertTrue(len(Square.__doc__) > 8)
 
 
 if __name__ == '__main__':
