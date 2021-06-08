@@ -33,7 +33,7 @@ class Base():
         filename = str('{}.json'.format(cls.__name__))
         dict_of_obj = {}
         list_of_dicts = []
-        if list_objs:
+        if len(list_objs) > 0:
             for object in list_objs:
                 dict_of_obj = object.to_dictionary()
                 list_of_dicts.append(dict_of_obj)
