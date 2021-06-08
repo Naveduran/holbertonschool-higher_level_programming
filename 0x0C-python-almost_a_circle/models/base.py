@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 '''module base '''
 import json
+import os
+import time
 
 
 class Base():
@@ -13,7 +15,7 @@ class Base():
         if id is not None:
             self.id = id
         else:
-            Base.__nb_objects = Base.__nb_objects + 1
+            Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
     @staticmethod
@@ -24,7 +26,6 @@ class Base():
             return '[]'
         else:
             return json.dumps(list_dictionaries)
-#            return json(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -36,5 +37,55 @@ class Base():
             dict_of_obj = object.to_dictionary()
             list_of_dicts.append(dict_of_obj)
         string = cls.to_json_string(list_of_dicts)
-        with open(filename, 'w' ,encoding='utf-8') as file:
+        with open(filename, 'w', encoding='utf-8') as file:
             file.write(string)
+
+    @staticmethod
+    def from_json_string(json_string):
+        ''' returns the list of the JSON string representation json_string '''
+        if json_string is None or json_string == []:
+            return []
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        '''returns an instance with all attributes already set'''
+        default = cls(10, 11)
+        default.update(**dictionary)
+        return default
+
+    @classmethod
+    def load_from_file(cls):
+        ''' returns a list of instances '''
+        filename = str('{}.json'.format(cls.__name__))
+        exist = os.path.isfile(filename)
+        if exist is False:
+            return []
+        else:
+            with open(filename, encoding='utf-8') as file:
+                filecontent = file.read()
+            list_of_dicts = cls.from_json_string(filecontent)
+            list_instances = []
+            for dictionary in list_of_dicts:
+                object = cls.create(**dictionary)
+                list_instances.append(object)
+            return list_instances
+
+    # INCOMPLETE:
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        ''' serializes in CSV '''
+        filename = str('{}.json'.format(cls.__name__))
+        pass
+
+    @classmethod
+    def load_from_file_csv(cls):
+        ''' deserializes in CSV '''
+        filename = str('{}.json'.format(cls.__name__))
+        pass
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        ''' opens a window and draws all the Rectangles and Squares '''
+        pass
