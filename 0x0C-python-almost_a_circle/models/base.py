@@ -33,12 +33,12 @@ class Base():
         filename = str('{}.json'.format(cls.__name__))
         dict_of_obj = {}
         list_of_dicts = []
-        for object in list_objs:
-            dict_of_obj = object.to_dictionary()
-            list_of_dicts.append(dict_of_obj)
-            string = cls.to_json_string(list_of_dicts)
-            with open(filename, 'w', encoding='utf-8') as file:
-                file.write(string)
+        if list_objs:
+            for object in list_objs:
+                list_of_dicts.append(cls.to_dictionary(object))
+                string = cls.to_json_string(list_of_dicts)
+                with open(filename, 'w', encoding='utf-8') as file:
+                    file.write(string)
 
     @staticmethod
     def from_json_string(json_string):
