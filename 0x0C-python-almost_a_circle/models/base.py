@@ -51,6 +51,8 @@ class Base():
     @classmethod
     def create(cls, **dictionary):
         '''returns an instance with all attributes already set'''
+        if dictionary is None:
+            return
         default = cls(10, 11)
         default.update(**dictionary)
         return default
