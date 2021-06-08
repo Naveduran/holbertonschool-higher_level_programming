@@ -27,7 +27,7 @@ class Rectangle(Base):
         if not isinstance(value, int):
             raise TypeError('width must be an integer')
         if value <= 0:
-            raise ValueError('width must be > 0')  # works
+            raise ValueError('width must be > 0')
         self.__width = value
 
     @property
@@ -109,7 +109,7 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         ''' returns the dictionary representation of a Rectangle '''
-        vars = ['x','y','id', 'height', 'width']
+        vars = ['x', 'y', 'id', 'height', 'width']
         dictionary = {}
         for i in range(len(vars)):
             dictionary.update({vars[i]: (getattr(self, vars[i]))})
