@@ -99,7 +99,7 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         ''' update the private attributes'''
         vars = ['id', 'width', 'height', 'x', 'y']
-        if args and args[0]:
+        if args:
             for i in range(len(args)):
                 setattr(self, vars[i], args[i])
         else:
