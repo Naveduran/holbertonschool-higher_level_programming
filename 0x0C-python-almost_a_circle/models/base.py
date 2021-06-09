@@ -52,7 +52,7 @@ class Base():
     def create(cls, **dictionary):
         '''returns an instance with all attributes already set'''
         if dictionary is None:
-            return
+            return None
         default = cls(1, 1)
         default.update(**dictionary)
         return default
@@ -74,12 +74,14 @@ class Base():
                 list_instances.append(object)
             return list_instances
 
-    # INCOMPLETE:
-
     @classmethod
     def save_to_file_csv(cls, list_objs):
         ''' serializes in CSV '''
-        filename = str('{}.json'.format(cls.__name__))
+        filename = str('{}.csv'.format(cls.__name__))
+        list_of_dicts = []
+        if list_objs:
+            for obj in list_objs:
+                list_of_dicts.append(cls.todictionary(obj))
         pass
 
     @classmethod
