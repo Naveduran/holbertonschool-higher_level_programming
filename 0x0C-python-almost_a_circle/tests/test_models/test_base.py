@@ -41,18 +41,85 @@ class Test_Base(unittest.TestCase):
         self.assertTrue(type(a), Base)
         self.assertIsInstance(a, Base)
 
-    def doc_of_funcs(self):
-
-        # documentation of functions
-
         # base has a method to_json_string(list_dictionaries)
         # to_json_string devuelve un string
+
+        rect = Rectangle(10, 7, 2, 8)
+        dictionary = r1.to_dictionary()
+        json_dictionary = Base.to_json_string([dictionary])
+
+        self.assertTrue(type(dictionary) == dict)
+        self.assertTrue(type(json_dictionary) == str)
+
+        # base has a class method save_to_file
+        # writes the JSON string representation of a list of objs to a file
+
+        os.remove("Rectangle.json")
+
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+
+        with open("Rectangle.json", "r") as file:
+            readed = file.read()
+
+        self.assertTrue(len(readed) > 0)
+
+        s1 = Square(1, 7, 2)
+        s2 = Square(2, 4)
+        Square.save_to_file([s1, s2])
+
+        with open("Square.json", "r") as file:
+            readed = file.read()
+
+        self.assertTrue(len(readed) > 0)
+
+        os.remove("Rectangle.json")
+
+        Rectangle.save_to_file(None)
+
+        with open("Rectangle.json", "r") as file:
+            readed = file.read()
+
+        self.assertTrue(readed == '[]')
+
+        os.remove("Rectangle.json")
+        os.remove("Square.json")
 
         # base has a static method from_json_string(json_string)
         # from_json_string devuelve una lista
 
+        list_input = [
+            {'id': 89, 'width': 10, 'height': 4},
+            {'id': 7, 'width': 1, 'height': 7}
+        ]
+        json_list_input = Rectangle.to_json_string(list_input)
+        list_output = Rectangle.from_json_string(json_list_input)
+
+        self.assertTrue(type(list_input) == list)
+        self.assertTrue(type(json_list_input) == str)
+        self.assertTrue(type(list_output) == list)
+
+        list_output = Rectangle.from_json_string(None)
+
+        self.assertTrue(type(list_input) == list)
+        self.assertTrue(type(json_list_input) == str)
+        self.assertTrue(type(list_output) == list)
+        self.assertTrue(list_output == [])
+
         # base has a class method create(cls, **dictionary)
         # returns an object with all the attributes setted
+
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertTrue(r1.x == r2.x)
+        self.assertTrue(r1.y == r2.y)
+        self.assertTrue(r1.id == r2.id)
+        self.assertTrue(r1.width == r2.width)
+        self.assertTrue(r1.height == r2.height)
+        self.assertFalse(r1 is r2)
+        self.assertFalse(r1 == r2)
 
         # base has a class method load_from_file(cls)
         # returns a list of instances
@@ -63,10 +130,12 @@ class Test_Base(unittest.TestCase):
         # base has a class method load_from_file_csv(cls):
         # do
 
+    def doc_of_base(self):
+        # documentation of functions
+
         pass
 
     def whole_project_requirements(self):
-
         # existence of all files and directories in the correct location
 
         self.assertTrue(os.path.isfile('README.md'))
