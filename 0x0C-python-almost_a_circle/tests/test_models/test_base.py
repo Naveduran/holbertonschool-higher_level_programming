@@ -7,23 +7,15 @@ import os  # allows to run bash commands
 # scripts to test:
 from models.base import Base
 from models.rectangle import Rectangle
-# from models.square import Square
+from models.square import Square
 
 
 class Test_Base(unittest.TestCase):
     # class to test the unit models.base.py
 
-    word = 'Betty'
     string = 'Betty Holberton'
-    positive = 5
-    negatve = 0 - 5
-    zero = 0
-    nothing = None
-    dictionary = {'Key0': 0, 'Key1': 1, 'Key2': 2, 'Key3': 3, 'Key4': 4}
-    list = [1, 2, 3, 4, 5]
-    boolean = True
 
-    def test_Base(self):
+    def test_base(self):
         # test for class Base, task 0
 
         a = Base()
@@ -45,7 +37,7 @@ class Test_Base(unittest.TestCase):
         # to_json_string devuelve un string
 
         rect = Rectangle(10, 7, 2, 8)
-        dictionary = r1.to_dictionary()
+        dictionary = rect.to_dictionary()
         json_dictionary = Base.to_json_string([dictionary])
 
         self.assertTrue(type(dictionary) == dict)
@@ -53,8 +45,6 @@ class Test_Base(unittest.TestCase):
 
         # base has a class method save_to_file
         # writes the JSON string representation of a list of objs to a file
-
-        os.remove("Rectangle.json")
 
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
@@ -152,8 +142,7 @@ class Test_Base(unittest.TestCase):
 
         self.assertTrue(os.path.isfile('./tests/test_models/__init__.py'))
         self.assertTrue(os.path.isfile('./tests/test_models/test_base.py'))
-        self.assertTrue(os.path.isfile(
-            './tests/test_models/test_rectangle.py'))
+        self.assertTrue(os.path.isfile('./tests/test_models/test_rectangle.py'))
         self.assertTrue(os.path.isfile('./tests/test_models/test_square.py'))
 
         # files are executable
@@ -161,8 +150,25 @@ class Test_Base(unittest.TestCase):
         self.assertTrue(os.access('./models/rectangle.py', os.X_OK))
         self.assertTrue(os.access('./models/square.py', os.X_OK))
 
-        # first and last line OF BASE
+        # first and last line
         with open('./models/base.py') as f:
+            first = f.readline()
+            last = f.read()[-1]
+
+        self.assertTrue(first == '#!/usr/bin/python3\n')
+        self.assertTrue(last == '\n')
+
+        # first and last line rectangle
+        with open('./models/rectangle.py') as f:
+            first = f.readline()
+            last = f.read()[-1]
+
+        self.assertTrue(first == '#!/usr/bin/python3\n')
+        self.assertTrue(last == '\n')
+
+
+        # first and last line square
+        with open('./models/square.py') as f:
             first = f.readline()
             last = f.read()[-1]
 
