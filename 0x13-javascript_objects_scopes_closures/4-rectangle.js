@@ -7,9 +7,9 @@ class Rectangle {
     }
   }
 
-  print () {
+  print (letter = 'X') {
     for (let step = 0; step < this.height; step++) {
-      console.log('X'.repeat(this.width));
+      console.log(letter.repeat(this.width));
     }
   }
 
