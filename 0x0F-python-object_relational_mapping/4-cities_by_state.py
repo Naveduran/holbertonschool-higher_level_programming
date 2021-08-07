@@ -4,8 +4,8 @@ import MySQLdb
 from sys import argv
 
 
-def My_Safe_Filter(username, password, db_name):
-    '''safe sql query'''
+def Cities_by_State(username, password, db_name):
+    '''shows cities by state using inner join on'''
 
     # Open database connection
     db = MySQLdb.connect(host="localhost", port=3306, user=username,
@@ -28,4 +28,4 @@ def My_Safe_Filter(username, password, db_name):
 
 
 if __name__ == "__main__":
-    My_Safe_Filter(argv[1], argv[2], argv[3])
+    Cities_by_State(argv[1], argv[2], argv[3])
