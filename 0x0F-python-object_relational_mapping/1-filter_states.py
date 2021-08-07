@@ -25,7 +25,7 @@ def Filter_States(username, password, db_name):
 
     # close cursor and connection
     cur.close()
-    db.close()
+#    db.close()
 
 
 if __name__ == "__main__":
