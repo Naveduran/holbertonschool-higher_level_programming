@@ -8,9 +8,9 @@ def Get_States(username, password, db_name):
     '''a script that lists all states from the database hbtn_0e_0_usa'''
 
     # Open database connection- allows to create a cursor
-    db = MySQLdb.connect(username,
-                         password,
-                         db_name)
+    db = MySQLdb.connect(user=username,
+                         passwd=password,
+                         db=db_name)
 
     # prepare a cursor object using cursor() method
     cur = db.cursor()
