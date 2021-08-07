@@ -9,8 +9,9 @@ def Filter_States(username, password, db_name):
     starting with N (upper N) from a given database'''
 
     # Open database connection
-    db = MySQLdb.connect(host="localhost", port=3306, user=username,
-                         passwd=password, db=db_name, charset="utf8")
+    db = MySQLdb.connect(user=username,
+                         passwd=password,
+                         db=db_name)
 
     # prepare a cursor object using cursor() method
     cur = db.cursor()
@@ -22,9 +23,9 @@ def Filter_States(username, password, db_name):
     for row in query_rows:
         print(row)
 
-        # close cursor and connection
-        cur.close()
-#       db.close()
+    # close cursor and connection
+    cur.close()
+    db.close()
 
 
 if __name__ == "__main__":
