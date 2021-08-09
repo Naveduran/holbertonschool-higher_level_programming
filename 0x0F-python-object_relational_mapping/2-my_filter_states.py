@@ -23,8 +23,6 @@ def My_Filter_States(username, password, db_name, state_name):
     for row in cur:
         print(row)
 
-    cur.close()
-
 
 if __name__ == "__main__":
     My_Filter_States(argv[1], argv[2], argv[3], argv[4])
