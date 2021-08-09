@@ -17,7 +17,7 @@ def Filter_States(username, password, db_name):
     cur = db.cursor()
 
     cur.execute("SELECT states.id, states.name FROM states WHERE\
-        name REGEXP '^[N]' ORDER BY states.id;")
+        ASCII(states.name) = 78 ORDER BY states.id;")
 
     query = cur.fetchall()
 
