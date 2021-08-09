@@ -16,14 +16,12 @@ def My_Filter_States(username, password, db_name, state_name):
 
     cur = db.cursor()
 
-    query = "SELECT states.id, states.name FROM states WHERE\
-    states.name = '{:s}' ORDER BY states.id;".format(state_name)
+    query = """SELECT states.id, states.name FROM states WHERE
+    states.name = '{:s}' ORDER BY states.id""".format(state_name)
 
     cur.execute(query)
 
-    query_rows = cur.fetchall()
-
-    for row in query_rows:
+    for row in cur:
         print(row)
 
     cur.close()
