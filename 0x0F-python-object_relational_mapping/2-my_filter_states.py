@@ -17,7 +17,7 @@ def My_Filter_States(username, password, db_name, state_name):
     cur = db.cursor()
 
     query = "SELECT states.id, states.name FROM states WHERE\
-    states.name = '{}' ORDER BY states.id;".format(str(state_name))
+    states.name = '{:s}' ORDER BY states.id;".format(state_name)
 
     cur.execute(query)
 
