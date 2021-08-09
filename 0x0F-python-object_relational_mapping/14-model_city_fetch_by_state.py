@@ -14,7 +14,9 @@ if __name__ == "__main__":
         format(argv[1], argv[2], argv[3]), pool_pre_ping=True)
     session = Session(engine)
 
-    for state in session.query(City, State).join(State).all():
-        print("{}: ({}) {}".format(state.name, city.state_id, city.name))
+    query = session.query(City, State).join(State).all()
+
+    for city, state in query:
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
 
     session.close()
