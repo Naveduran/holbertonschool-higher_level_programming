@@ -7,18 +7,17 @@ from sys import argv
 def My_Filter_States(username, password, db_name, state_name):
     '''shows only the specified names of states'''
 
-    # Open database connection
-    db = MySQLdb.connect(host="localhost", port=3306, charset="utf8",
+    db = MySQLdb.connect(host="localhost",
+                         port=3306,
                          user=username,
                          passwd=password,
-                         db=db_name)
+                         db=db_name,
+                         charset="utf8")
 
-    # prepare a cursor object using cursor() method
     cur = db.cursor()
 
-    # execute SQL query using execute() method.
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC;".format(
-        state_name)
+    query = "SELECT states.id, states.name FROM states WHERE\
+    states.name = '{}' ORDER BY states.id;".format(state_name)
 
     cur.execute(query)
     query_rows = cur.fetchall()
