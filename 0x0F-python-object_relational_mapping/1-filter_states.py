@@ -7,7 +7,8 @@ from sys import argv
 def Filter_States(username, password, db_name):
     """lists all states with a name starting with N"""
 
-    db = MySQLdb.connect(user=username,
+    db = MySQLdb.connect(host="localhost", port=3306, charset="utf8",
+                         user=username,
                          passwd=password,
                          db=db_name)
 
@@ -15,8 +16,9 @@ def Filter_States(username, password, db_name):
 
     cur.execute("SELECT states.id, states.name FROM states WHERE\
         name LIKE 'N%' ORDER BY states.id ASC;")
-    query_rows = cur.fetchall()
-    for row in query_rows:
+    query = cur.fetchall()
+
+    for row in query:
         print(row)
 
     cur.close()

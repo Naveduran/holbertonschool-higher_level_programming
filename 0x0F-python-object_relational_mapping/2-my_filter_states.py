@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''my module 1'''
+'''my module 2'''
 import MySQLdb
 from sys import argv
 
@@ -8,8 +8,10 @@ def My_Filter_States(username, password, db_name, state_name):
     '''shows only the specified names of states'''
 
     # Open database connection
-    db = MySQLdb.connect(host="localhost", port=3306, user=username,
-                         passwd=password, db=db_name, charset="utf8")
+    db = MySQLdb.connect(host="localhost", port=3306, charset="utf8",
+                         user=username,
+                         passwd=password,
+                         db=db_name)
 
     # prepare a cursor object using cursor() method
     cur = db.cursor()
