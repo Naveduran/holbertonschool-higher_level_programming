@@ -20,7 +20,7 @@ def My_Filter_States(username, password, db_name, state_name):
     states.name = \'{:s}\' ORDER BY states.id'.format(state_name))
 
     for row in cur:
-        if row[1] == state_name:
+        if row[1] == state_name:  # this contional is the senseless key!!!
             print(row)
 
     cur.close()
