@@ -39,5 +39,5 @@ quickly learn and adapt to new frameworks for building products or to iterate on
 - Object-relational mapping
 
 ### EXAMPLES OF PROJECTS
--Create your own AirBnB website complete with database, front-end, back-end, console, and testing
--Hack a website's security by scripting requests
+- Create your own AirBnB website complete with database, front-end, back-end, console, and testing
+- Hack a website's security by scripting requests
