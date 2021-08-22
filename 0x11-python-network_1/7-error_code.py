@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-
+Error management
 """
 
 if __name__ == '__main__':
