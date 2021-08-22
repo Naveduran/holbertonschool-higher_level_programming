@@ -3,5 +3,4 @@
 import requests
 from sys import argv
 r = requests.get(argv[1])
-print("Body response:\n\t- type: {}".format(type(r.text)))
-print("\t- content: {}".format(r.text))
+print(r.headers.get('X-Request-Id'))
