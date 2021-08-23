@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-POST a letter and receive response
+POST a letter and receive a json response
 """
 
 if __name__ == '__main__':
