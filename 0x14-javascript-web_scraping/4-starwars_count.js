@@ -5,7 +5,7 @@ const request = require('request');
 const URL = process.argv[2];
 
 request(URL, function (err, response, body) {
-		if (err) { console.error(err); }
+  if (err) { console.error(err); }
   const films = JSON.parse(body);
   const character = 'https://swapi-api.hbtn.io/api/people/18/';
   let number = 0;
