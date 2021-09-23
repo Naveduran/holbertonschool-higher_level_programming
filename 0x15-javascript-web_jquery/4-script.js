@@ -1,4 +1,4 @@
-// toggles the class of the <header> element when the user clicks on
+// toggles the class of the  <header> element when the user clicks on
 // the tag DIV#toggle_header.
 $(document).ready(function () {
   $('div#toggle_header').click(function () {
